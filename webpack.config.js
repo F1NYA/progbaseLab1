@@ -2,6 +2,7 @@ let path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const htmlTemplatePath = path.resolve(__dirname ,'src/index.pug');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 var extractPlugin = new ExtractTextPlugin({
     filename: 'index.css'
@@ -16,7 +17,7 @@ module.exports = {
 	module: {
         loaders: [
             {
-                test: /.pug?$/,
+                test: /.pug$/,
                 loader: 'pug-loader',
                 exclude: /node_modules/,
 			},
@@ -26,6 +27,11 @@ module.exports = {
                     use: ['css-loader','postcss-loader','sass-loader']
                 }),
                 exclude: /node_modules/
+            },
+            {
+                test: /.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
             }
 		]
 	},
@@ -34,6 +40,10 @@ module.exports = {
             inject: true,
             template: htmlTemplatePath
 		}),
-		extractPlugin
+		extractPlugin,
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery'
+        })
 	],
 };
