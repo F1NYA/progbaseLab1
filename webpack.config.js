@@ -1,6 +1,6 @@
 let path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmlTemplatePath = path.resolve(__dirname ,'src/index.pug');
+const htmlTemplatePath = path.resolve(__dirname, 'src/index.pug');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
@@ -9,22 +9,37 @@ var extractPlugin = new ExtractTextPlugin({
 });
 
 module.exports = {
-	entry: path.resolve(__dirname, 'src/index.js'),
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-        path: path.resolve(__dirname, ''),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
-	},
-	module: {
+    },
+    module: {
         loaders: [
             {
                 test: /.pug$/,
                 loader: 'pug-loader',
-                exclude: /node_modules/,
-			},
-			{
+                exclude: [
+                    path.resolve(__dirname, 'node_modules/'),
+                    path.resolve(__dirname, 'src/pages/')
+                ]
+            },
+            {
+                test: /.pug$/,
+                loaders: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'pages/[name].html',
+                        }
+                    }, 'pug-html-loader'],
+                include: path.resolve(__dirname, 'src/pages/'),
+                exclude: /node_modules/
+            },
+            {
                 test: /\.sass$/,
                 use: extractPlugin.extract({
-                    use: ['css-loader','postcss-loader','sass-loader']
+                    use: ['css-loader', 'postcss-loader', 'sass-loader']
                 }),
                 exclude: /node_modules/
             },
@@ -33,17 +48,17 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
             }
-		]
-	},
-	plugins: [
+        ]
+    },
+    plugins: [
         new HtmlWebpackPlugin({
             inject: true,
             template: htmlTemplatePath
-		}),
-		extractPlugin,
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery'
+        }),
+        extractPlugin,
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
-	],
+    ],
 };
