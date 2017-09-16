@@ -10334,13 +10334,16 @@ __webpack_require__(2);
 
 __webpack_require__(0);
 
-//import stylesheets
+__webpack_require__(3);
+
+//import jquery
 $(document).ready(function () {
   $("p").click(function () {
     $(this).hide();
   });
 });
-//import jquery
+//pages
+//import stylesheets
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -10348,6 +10351,12 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "pages/list.html";
 
 /***/ })
 /******/ ]);
