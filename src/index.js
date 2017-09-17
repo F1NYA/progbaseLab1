@@ -3,6 +3,7 @@ var req = require.context("./pages", true, /^(.*\.(pug$))[^.]*$/igm);
 req.keys().forEach(function(key){req(key);});
 //import stylesheets
 import './index.sass';
+import './resources/team.jpg';
 
 $(document).ready(function(){
     $('.carousel.carousel-slider').carousel({fullWidth: true});

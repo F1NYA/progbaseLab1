@@ -37,12 +37,15 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader',
-                include: path.resolve(__dirname, 'resources'),
-                options: {
-                    name: 'media/[name].[ext]'
-                }
+                test: /\.(jpg|png)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'resources/',
+                        publicPath: 'resources/'
+                    }
+                }]
             },
             {
                 test: /\.sass$/,

@@ -72,8 +72,10 @@
 
 __webpack_require__(1);
 
+__webpack_require__(2);
+
 //import all pages
-var req = __webpack_require__(2);
+var req = __webpack_require__(3);
 req.keys().forEach(function (key) {
     req(key);
 });
@@ -93,10 +95,16 @@ $(document).ready(function () {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = "resources/resources/team.jpg";
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./list.pug": 3
+	"./list.pug": 4
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -112,10 +120,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 2;
+webpackContext.id = 3;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "pages/list.html";
