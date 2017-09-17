@@ -1,8 +1,9 @@
 doctype html
 html(lang="en")
-  head
-    title Lab1
+  include utils/head
   body
-    h1 Hello world!
-    p Paragraph
-    a(href='./pages/list.html') to list
+    include components/navbar
+    include components/carousel
+    include components/motivateSection
+    include components/exploreSection
+    include components/footer

@@ -37,6 +37,14 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'file-loader',
+                include: path.resolve(__dirname, 'resources'),
+                options: {
+                    name: 'media/[name].[ext]'
+                }
+            },
+            {
                 test: /\.sass$/,
                 use: extractPlugin.extract({
                     use: ['css-loader', 'postcss-loader', 'sass-loader']
@@ -44,9 +52,14 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.css$/,
+                use: extractPlugin.extract({
+                    use: ['css-loader', 'postcss-loader']
+                })
+            },
+            {
                 test: /.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
+                loader: 'babel-loader'
             }
         ]
     },
@@ -55,10 +68,6 @@ module.exports = {
             inject: true,
             template: htmlTemplatePath
         }),
-        extractPlugin,
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        })
+        extractPlugin
     ],
 };
