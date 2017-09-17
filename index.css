@@ -1,2 +1,32 @@
-body {
-  color: blue; }
+.carousel i.large.material-icons {
+  font-size: 12em;
+  margin-top: 0.2em; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+.content {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .content div {
+    padding-left: 17vw; }
+    .content div blockquote {
+      border-color: white; }
+
+.exploreSection {
+  text-align: center;
+  padding: 3em; }
+  .exploreSection a {
+    width: 40em; }
+
+.footer {
+  padding: 1em; }
+  .footer p {
+    margin: 0 0 0 5vw;
+    color: #90a4ae; }
