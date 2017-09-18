@@ -1,6 +1,5 @@
 let path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmlTemplatePath = path.resolve(__dirname, 'src/index.pug');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
@@ -21,26 +20,28 @@ module.exports = {
                 loader: 'pug-loader',
                 exclude: [
                     path.resolve(__dirname, 'node_modules/'),
-                    path.resolve(__dirname, 'src/pages/')
                 ]
             },
-            {
-                test: /.pug$/,
-                loaders: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'pages/[name].html',
-                        }
-                    }, 'pug-html-loader'],
-                include: path.resolve(__dirname, 'src/pages/'),
-                exclude: /node_modules/
+            { 
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    mimetype: 'application/font-woff',
+                    outputPath: 'fonts/',
+                    name: '[name].[ext]'
+                }
+            },
+            { 
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+                loader: 'file-loader' 
             },
             {
                 test: /\.(jpg|png)$/,
                 use: [{
-                    loader: 'file-loader',
+                    loader: 'url-loader',
                     options: {
+                        limit: '10000',
                         name: '[name].[ext]',
                         outputPath: 'resources/',
                         publicPath: 'resources/'
@@ -69,7 +70,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: htmlTemplatePath
+            template: path.resolve(__dirname, 'src/index.pug')
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: path.resolve(__dirname, 'src/pages/list.pug'),
+            filename: path.resolve(__dirname, 'dist/pages/list.html')
         }),
         extractPlugin
     ],

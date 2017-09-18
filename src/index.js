@@ -1,8 +1,5 @@
-//import all pages
-var req = require.context("./pages", true, /^(.*\.(pug$))[^.]*$/igm);
-req.keys().forEach(function(key){req(key);});
 //import stylesheets
-import './index.sass';
+import './sass/index.sass';
 import './resources/team.jpg';
 
 $(document).ready(function(){

@@ -1,11 +1,21 @@
+@import 'materialize'
+
 .carousel
 	i.large.material-icons
 		font-size: 12em
 		margin-top: 0.2em
-	h1
+	.indicators
+		.indicator-item
+			background-color: grey
+			&.active
+				background-color: black
+
 img
 	width: 100%
 	height: auto
+	@media #{$small-and-down}
+		width: auto
+		height: 100%
 .content
 	height: 100%
 	display: flex
@@ -19,7 +29,11 @@ img
 	text-align: center
 	padding: 3em
 	a
-		width: 40em
+		width: 40vw
+		@media #{$small-and-down}
+			width: 60vw
+		@media #{$medium-and-up}
+			width: 50vw
 .footer
 	padding: 1em
 	p
