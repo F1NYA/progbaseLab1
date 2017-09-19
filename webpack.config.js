@@ -62,8 +62,7 @@ let config = {
                     options: {
                         limit: '10000',
                         name: '[name].[ext]',
-                        outputPath: 'resources/',
-                        publicPath: 'resources/'
+                        outputPath: 'resources/'
                     }
                 }]
             },

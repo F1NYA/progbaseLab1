@@ -1,5 +1,5 @@
 //import stylesheets
-import './sass/index.sass';
+import './index.sass';
 //import media
 import './resources/team.jpg';
 import './resources/appleConf.jpg';

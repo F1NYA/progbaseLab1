@@ -1,17 +1,18 @@
 doctype html
 html(lang="en")
-  include ../utils/head
+  head
+    include ../utils/head
   body
     include ../components/navbar
     include ../components/eventCard
     h4.center-align.hide-on-small-and-down Events you may be interested in
     .row
       .col.s12.m6
-         +card('Apple 2017','../resources/appleConf.jpg','Apple Unveils iPhone 8, Edge-to-Edge iPhone X With Wireless Charging','/')
+         +card('Apple 2017','../resources/appleConf.jpg','Apple Unveils iPhone 8, Edge-to-Edge iPhone X With Wireless Charging','./apple2017.html')
       .col.s12.m6
-         +card('Ilya\'s birthday','../resources/birthday.jpg','Naked girls, alkohol and guns.','/')
+         +card('Ilya\'s birthday','../resources/birthday.jpg','Naked girls, alkohol and guns.','./ilyaBirthday.html')
     .row
       .col.s12.m6
-         +card('Blockchain Club Lviv','../resources/blockchain.jpg','At this III experts will tell the relevant information on the following topics: - Trendy in the ICO and bitcoin; - Mining; - Legal issues.','/')
+         +card('Blockchain Club Lviv','../resources/blockchain.jpg','At this III experts will tell the relevant information on the following topics: - Trendy in the ICO and bitcoin; - Mining; - Legal issues.','./blockchainLviv.html')
       .col.s12.m6
-         +card('GDD-Europe Extended Dnipro 2017','../resources/gdd.png','September 5-6 in Krakow will be held Google Developer Days - a large-scale conference, which will showcase the latest products for developers from Google','/')
+         +card('GDD-Europe Extended Dnipro 2017','../resources/gdd.png','September 5-6 in Krakow will be held Google Developer Days - a large-scale conference, which will showcase the latest products for developers from Google','./gddEurope.html')
