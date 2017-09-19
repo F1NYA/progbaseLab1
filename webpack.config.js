@@ -96,7 +96,6 @@ let config = {
 };
 
 let pugs = getPugsFromFolder('src/pages');
-
 pugs.map(pug => {
     config.plugins.push(new HtmlWebpackPlugin({
         inject: true,

@@ -1,41 +1,8 @@
+//LIBS
 @import 'materialize'
-
-.carousel
-	i.large.material-icons
-		font-size: 12em
-		margin-top: 0.2em
-	.indicators
-		.indicator-item
-			background-color: grey
-			&.active
-				background-color: white
-
-img
-	width: 100%
-	height: auto
-	@media #{$small-and-down}
-		width: auto
-		height: 100%
-.content
-	height: 100%
-	display: flex
-	align-items: center
-	div
-		padding-left: 17vw
-		blockquote
-			border-color: white
-
-.exploreSection
-	text-align: center
-	padding: 3em
-	a
-		width: 40vw
-		@media #{$small-and-down}
-			width: 60vw
-		@media #{$medium-and-up}
-			width: 50vw
-.footer
-	padding: 1em
-	p
-		margin: 0 0 0 5vw
-		color: #90a4ae
+//COMPONENTS
+@import 'carousel'
+@import 'exploreSection'
+@import 'footer'
+@import 'motivateSection'
+@import 'eventCard'
