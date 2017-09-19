@@ -1,0 +1,9 @@
+mixin card(title,img,content,link)
+	.card.large
+		.card-image
+			img(src=img)
+			span.card-title=title
+		.card-content
+			p.flow-text=content
+		.card-action.blue-grey.lighten-3
+			a(href=link).black-text Learn more
